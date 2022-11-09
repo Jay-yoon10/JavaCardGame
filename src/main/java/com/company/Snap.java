@@ -4,16 +4,17 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class Snap extends CardGame{
+public class Snap extends CardGame {
 
+    public Player p = new Player("Player1", "Player2");
     private CardGame c;
-    public Player p =new Player("Player1", "Player2" );
 
 
-    public Snap(){
+    public Snap() {
 
     }
-    public void gameStart(){
+
+    public void gameStart() {
         c = new CardGame();
         shuffle();
         Suit previousCardSymbol = null;
@@ -25,10 +26,10 @@ public class Snap extends CardGame{
         while (!timeout) {
             String currentPlayer = (turn % 2 == 0) ? p.player1 : p.player2;
 
-            int time = 2000 ;
+            int time = 2000;
 
             try {
-                TimeUnit.MILLISECONDS.sleep((long) time);
+                TimeUnit.MILLISECONDS.sleep(time);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -48,46 +49,33 @@ public class Snap extends CardGame{
                 timeout = true;
             }
             previousCardSymbol = nextCard.getSuit();
-            }
+        }
 
-            int timeForPlayer1 = 1000 ;
-            int timeForPlayer2 = 1000 ;
+        int timeForPlayer1 = 1000;
+        int timeForPlayer2 = 1000;
 
 
-            if(timeForPlayer1 == timeForPlayer2){
-                String result = String.format("SNAP! Congratulation!! %s is the WINNER!",
-                        timeForPlayer2 > timeForPlayer1 ? p.player2 : p.player1);
-                try {
-                    TimeUnit.MILLISECONDS.sleep((long) Math.min(timeForPlayer1, timeForPlayer2));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(result);
-//                try{
-//                    TimeUnit.MILLISECONDS.sleep((long) timeForPlayer1);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                String.format("SNAP! Congratulation!! %s is the WINNER!",
-//                        timeForPlayer1 < timeForPlayer2 ? p.player1 : p.player2);
+        if (timeForPlayer1 == timeForPlayer2) {
+            String result = String.format("SNAP! Congratulation!! %s is the WINNER!",
+                    timeForPlayer2 > timeForPlayer1 ? p.player2 : p.player1);
+            try {
+                TimeUnit.MILLISECONDS.sleep(Math.min(timeForPlayer1, timeForPlayer2));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            else {
-                                try{
-                    TimeUnit.MILLISECONDS.sleep((long) timeForPlayer1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                String.format("SNAP! Congratulation!! %s is the WINNER!",
-                        timeForPlayer1 > timeForPlayer2 ? p.player1 : p.player2);
-//                String result = String.format("SNAP! Congratulation!! %s is the WINNER!",
-//                        timeForPlayer1 < timeForPlayer2 ? p.player1 : p.player2);
-//                try {
-//                    TimeUnit.MILLISECONDS.sleep((long) Math.min(timeForPlayer1, timeForPlayer2));
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                System.out.println(result);
+            System.out.println(result);
+
+        } else {
+            try {
+                TimeUnit.MILLISECONDS.sleep(timeForPlayer1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            String.format("SNAP! Congratulation!! %s is the WINNER!",
+                    timeForPlayer1 > timeForPlayer2 ? p.player1 : p.player2);
+
+        }
     }
+
 
 }

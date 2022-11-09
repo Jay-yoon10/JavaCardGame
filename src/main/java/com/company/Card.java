@@ -1,34 +1,5 @@
 package com.company;
 
-public class Card {
-    public  CardSymbol cardSymbol;
-    public  Suit suit;
-    public Value value;
-
-    public Card(CardSymbol cardSymbol,Suit suit,  Value value){
-        this.suit = suit;
-        this.cardSymbol = cardSymbol;
-        this.value = value;
-    }
-
-    public String toString(){
-
-        return cardSymbol + " of " + suit;
-    }
-    public Suit getSuit() {
-
-        return suit;
-    }
-    public CardSymbol getCardSymbol() {
-
-        return cardSymbol;
-    }
-    public Value getValue() {
-
-        return value;
-    }
-
-}
 enum Suit {
     CLUB("♣"),
     DIAMOND("♦"),
@@ -38,7 +9,8 @@ enum Suit {
     Suit(String suit) {
     }
 }
-enum CardSymbol{
+
+enum CardSymbol {
     ACE("A"),
     TWO("2"),
     THREE("3"),
@@ -56,19 +28,32 @@ enum CardSymbol{
     CardSymbol(String cardSymbol) {
     }
 }
-enum Value{
-    FOURTEEN,
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
-    TEN,
-    ELEVEN,
-    TWELVE,
-    THIRTEEN;
+
+public class Card {
+    public CardSymbol cardSymbol;
+    public Suit suit;
+//    public Value value;
+
+    public Card(CardSymbol cardSymbol, Suit suit) {
+        this.suit = suit;
+        this.cardSymbol = cardSymbol;
+//        this.value = value;
+    }
+
+    public String toString() {
+
+        return cardSymbol + " of " + suit;
+    }
+
+    public Suit getSuit() {
+
+        return suit;
+    }
+
+    public CardSymbol getCardSymbol() {
+
+        return cardSymbol;
+    }
+
 
 }

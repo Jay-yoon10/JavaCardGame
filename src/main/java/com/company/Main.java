@@ -11,14 +11,14 @@ public class Main {
         Snap startGame = new Snap();
         Scanner in = new Scanner(System.in);
 
-        while (gameContinue){
-                startGame.gameStart();
+        while (gameContinue) {
+            startGame.gameStart();
             System.out.println("The Game is over! Please input 'Yes' to restart the game, otherwise press any other button.");
-            if(!in.nextLine().equalsIgnoreCase("Yes")){
+            if (!in.nextLine().equalsIgnoreCase("Yes")) {
 
                 gameContinue = false;
             }
         }
-    in.close();
+        in.close();
     }
 }
