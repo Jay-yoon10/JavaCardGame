@@ -15,7 +15,6 @@ class CardTest {
         Card card = new Card(CardSymbol.ACE, Suit.CLUB);
         assertEquals(Suit.CLUB, card.getSuit());
         assertEquals(CardSymbol.ACE, card.getCardSymbol());
-//        assertEquals(Value.FOURTEEN, card.getValue());
         assertEquals("ACE of CLUB", card.toString());
     }
 
